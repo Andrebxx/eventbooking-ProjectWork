@@ -1,0 +1,914 @@
+/* =======================
+   STILE PROFILO - EventBooking
+   ======================= */
+
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #1a1a2e 35%, 
+        #16213e 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Overlay per migliorare la leggibilità */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(108, 92, 231, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Container principale */
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Equalizzazione altezze delle colonne */
+.row.align-items-stretch {
+    align-items: stretch !important;
+}
+
+.profile-section .row {
+    align-items: stretch;
+}
+
+.profile-section .col-md-6,
+.profile-section .col-md-4,
+.profile-section .col-md-8 {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-section .col-md-6 > *,
+.profile-section .col-md-4 > *,
+.profile-section .col-md-8 > * {
+    flex: 1;
+}
+
+/* Hero Section del Profilo */
+.profile-hero {
+    background: linear-gradient(135deg, rgba(30, 30, 60, 0.9), rgba(60, 40, 70, 0.8)) !important;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(108, 92, 231, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Foto profilo */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #6c5ce7;
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(108, 92, 231, 0.6);
+}
+
+/* Titoli delle sezioni */
+.section-title {
+    color: #6c5ce7;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(108, 92, 231, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i {
+    font-size: 1.8rem;
+}
+
+/* Statistiche rapide */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    background: rgba(108, 92, 231, 0.2);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #6c5ce7;
+    text-shadow: 0 2px 10px rgba(108, 92, 231, 0.5);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Sezioni del profilo */
+.profile-section {
+    background: linear-gradient(135deg, rgba(30, 30, 60, 0.9), rgba(60, 40, 70, 0.8));
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(108, 92, 231, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Card informazioni */
+.info-card {
+    background: linear-gradient(135deg, rgba(45, 45, 80, 0.95), rgba(70, 50, 90, 0.85));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 2px solid rgba(108, 92, 231, 0.4);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.info-item i {
+    color: #6c5ce7;
+    font-size: 1.2rem;
+    min-width: 20px;
+}
+
+/* Area upload foto */
+.upload-area {
+    background: linear-gradient(135deg, rgba(45, 45, 80, 0.95), rgba(70, 50, 90, 0.85));
+    border: 2px dashed #6c5ce7;
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.upload-area:hover {
+    background: linear-gradient(135deg, rgba(60, 60, 100, 0.95), rgba(85, 65, 105, 0.85));
+    border-color: #a29bfe;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(108, 92, 231, 0.4);
+}
+
+/* Form controls */
+.form-control, .form-select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.form-control:focus, .form-select:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #6c5ce7;
+    box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+    color: #ffffff;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-label {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Bottoni personalizzati */
+.btn-custom {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+.btn-custom:hover {
+    background: linear-gradient(135deg, #5b4cdb, #9187fc);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.6);
+    color: white;
+}
+
+/* Sezione carte di credito */
+.card-item {
+    background: linear-gradient(135deg, rgba(45, 45, 80, 0.9), rgba(70, 50, 90, 0.8));
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid rgba(108, 92, 231, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    width: 100%;
+}
+
+.card-item:hover {
+    background: linear-gradient(135deg, rgba(60, 60, 100, 0.9), rgba(85, 65, 105, 0.8));
+    transform: translateY(-3px);
+    border-color: #6c5ce7;
+    box-shadow: 0 12px 35px rgba(108, 92, 231, 0.4);
+}
+
+.card-details {
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Form aggiunta carta */
+.add-card-form {
+    background: linear-gradient(135deg, rgba(45, 45, 80, 0.95), rgba(70, 50, 90, 0.85));
+    border-radius: 15px;
+    padding: 2rem;
+    border: 2px solid rgba(108, 92, 231, 0.4);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    width: 100%;
+}
+
+/* Tabelle eventi */
+.event-table {
+    background: transparent;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.event-table th {
+    background-color: #5b3361 !important;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    padding: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+.event-table td {
+    background-color: rgba(91, 51, 97, 0.6) !important;
+    color: #ffffff;
+    border: none;
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.event-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.event-table tbody tr:hover td {
+    background-color: rgba(91, 51, 97, 0.8) !important;
+    transform: scale(1.01);
+}
+
+/* Tab personalizzati */
+.custom-tab {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    margin-right: 0.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.custom-tab:hover {
+    background: rgba(108, 92, 231, 0.3);
+    color: #ffffff;
+    border-color: #6c5ce7;
+}
+
+.custom-tab.active {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: #ffffff;
+    border-color: #6c5ce7;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.4);
+}
+
+/* Badge personalizzati */
+.badge {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.5rem 0.8rem;
+}
+
+.bg-primary {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe) !important;
+}
+
+.bg-secondary {
+    background: linear-gradient(135deg, #636e72, #74b9ff) !important;
+}
+
+/* Alert personalizzati */
+.alert {
+    border: none;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border-left: 4px solid;
+}
+
+.alert-success {
+    background: rgba(0, 184, 148, 0.2);
+    color: #00b894;
+    border-left-color: #00b894;
+}
+
+.alert-danger {
+    background: rgba(231, 76, 60, 0.2);
+    color: #e74c3c;
+    border-left-color: #e74c3c;
+}
+
+/* Bottoni outline */
+.btn-outline-danger {
+    border-color: #e74c3c;
+    color: #e74c3c;
+    background: transparent;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 1rem 0.5rem;
+    }
+    
+    .profile-hero {
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+    
+    .profile-section {
+        padding: 1.5rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        justify-content: center;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .table-responsive {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .event-table th,
+    .event-table td {
+        font-size: 0.8rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .upload-area {
+        padding: 2rem 1rem;
+    }
+    
+    .add-card-form {
+        padding: 1.5rem;
+    }
+    
+    .custom-tab {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-custom {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animazioni */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-section {
+    animation: fadeInUp 0.6s ease;
+}
+
+.profile-hero {
+    animation: fadeInUp 0.8s ease;
+}
+
+/* Scrollbar personalizzata */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5b4cdb, #9187fc);
+}
+
+/* Effetti di hover per le icone */
+.fa {
+    transition: all 0.3s ease;
+}
+
+.info-item:hover i {
+    transform: scale(1.2);
+    color: #a29bfe;
+}
+
+/* Stile per select personalizzate */
+.form-select option {
+    background-color: #2c1810;
+    color: #ffffff;
+}
+
+/* Focus states migliorati */
+.form-control:focus,
+.form-select:focus,
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.25);
+}
+
+/* Miglioramenti per l'accessibilità */
+.btn, .form-control, .form-select {
+    min-height: 44px; /* Touch target minimo */
+}
+
+/* Loading states */
+.btn-custom:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Hover effects per le carte */
+.card-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(108, 92, 231, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.card-item:hover::before {
+    left: 100%;
+}
+
+/* ELEMENTI DECORATIVI DI SFONDO */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Assicura che tutti gli elementi decorativi siano dietro il contenuto */
+.floating-shape,
+.floating-particle,
+.light-wave,
+.pulse-circle,
+.twinkling-star,
+.musical-note {
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* FORME GEOMETRICHE FLUTTUANTI */
+.floating-shape {
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+    filter: blur(1px);
+}
+
+.shape-1 {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(233, 69, 96, 0.3), rgba(108, 92, 231, 0.3));
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.shape-2 {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(108, 92, 231, 0.4), rgba(162, 155, 254, 0.3));
+    top: 25%;
+    right: 20%;
+    animation-delay: 2s;
+    animation-duration: 10s;
+}
+
+.shape-3 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(225deg, rgba(233, 69, 96, 0.2), rgba(255, 107, 107, 0.3));
+    bottom: 30%;
+    left: 10%;
+    animation-delay: 4s;
+    animation-duration: 12s;
+}
+
+.shape-4 {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(315deg, rgba(108, 92, 231, 0.3), rgba(99, 110, 114, 0.2));
+    bottom: 15%;
+    right: 15%;
+    animation-delay: 1s;
+    animation-duration: 9s;
+}
+
+.shape-5 {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(45deg, rgba(162, 155, 254, 0.4), rgba(116, 185, 255, 0.3));
+    top: 60%;
+    left: 50%;
+    animation-delay: 3s;
+    animation-duration: 7s;
+}
+
+/* PARTICELLE LUMINOSE */
+.floating-particle {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: particleFloat 8s linear infinite;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+.particle-1 {
+    top: 20%;
+    left: 25%;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.particle-2 {
+    top: 40%;
+    right: 30%;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.particle-3 {
+    bottom: 25%;
+    left: 35%;
+    animation-delay: 4s;
+    animation-duration: 8s;
+}
+
+.particle-4 {
+    top: 70%;
+    right: 25%;
+    animation-delay: 1s;
+    animation-duration: 11s;
+}
+
+.particle-5 {
+    top: 15%;
+    left: 60%;
+    animation-delay: 3s;
+    animation-duration: 9s;
+}
+
+.particle-6 {
+    bottom: 40%;
+    right: 40%;
+    animation-delay: 5s;
+    animation-duration: 13s;
+}
+
+/* ONDE DI LUCE */
+.light-wave {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(108, 92, 231, 0.2);
+    border-radius: 50%;
+    animation: wave 4s ease-in-out infinite;
+}
+
+.wave-1 {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.wave-2 {
+    bottom: 20%;
+    right: 30%;
+    animation-delay: 1.5s;
+}
+
+.wave-3 {
+    top: 60%;
+    left: 70%;
+    animation-delay: 3s;
+}
+
+/* CERCHI PULSANTI */
+.pulse-circle {
+    width: 100px;
+    height: 100px;
+    border: 1px solid rgba(233, 69, 96, 0.3);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.circle-1 {
+    top: 15%;
+    right: 10%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    bottom: 35%;
+    left: 20%;
+    animation-delay: 1s;
+}
+
+.circle-3 {
+    top: 45%;
+    right: 45%;
+    animation-delay: 2s;
+}
+
+/* STELLE SCINTILLANTI */
+.twinkling-star {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.star-1 {
+    top: 25%;
+    left: 80%;
+    animation-delay: 0s;
+}
+
+.star-2 {
+    top: 10%;
+    left: 45%;
+    animation-delay: 0.5s;
+}
+
+.star-3 {
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.star-4 {
+    top: 80%;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+
+.star-5 {
+    top: 50%;
+    left: 15%;
+    animation-delay: 2s;
+}
+
+/* NOTE MUSICALI FLUTTUANTI */
+.musical-note {
+    font-size: 24px;
+    color: rgba(108, 92, 231, 0.6);
+    animation: noteFloat 8s ease-in-out infinite;
+    text-shadow: 0 0 10px rgba(108, 92, 231, 0.5);
+}
+
+.note-1 {
+    top: 35%;
+    left: 75%;
+    animation-delay: 0s;
+}
+
+.note-2 {
+    bottom: 45%;
+    right: 10%;
+    animation-delay: 2s;
+}
+
+.note-3 {
+    top: 65%;
+    left: 40%;
+    animation-delay: 4s;
+}
+
+/* ANIMAZIONI */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-15px) translateX(10px);
+        opacity: 0.8;
+    }
+    75% {
+        opacity: 1;
+    }
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+@keyframes noteFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.4;
+    }
+    33% {
+        transform: translateY(-10px) rotate(5deg);
+        opacity: 0.8;
+    }
+    66% {
+        transform: translateY(-5px) rotate(-5deg);
+        opacity: 0.6;
+    }
+}

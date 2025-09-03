@@ -1,0 +1,54 @@
+# Ignore backup folder
+beckoup/
+
+# Ignore sensitive configuration files
+password.php
+config.php
+database.php
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore log files
+*.log
+logs/
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore uploaded user files (optional - uncomment if needed)
+# Immagini/foto_utenti/
+# Immagini/Eventi/
+
+# Ignore composer dependencies (if used)
+vendor/
+composer.lock
+
+# Ignore npm dependencies (if used)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore environment files
+.env
+.env.local
+.env.production
+
+# Ignore backup files
+*.bak
+*.backup
+*.old

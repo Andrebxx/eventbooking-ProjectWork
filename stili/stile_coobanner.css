@@ -1,0 +1,461 @@
+/* STILI PER COOKIE BANNER */
+
+/* Overlay principale */
+.cookie-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(75, 0, 130, 0.9) 0%,
+        rgba(106, 90, 205, 0.85) 50%,
+        rgba(138, 43, 226, 0.9) 100%
+    );
+    backdrop-filter: blur(15px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cookie-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.cookie-overlay.closing {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* Wrapper del banner */
+.cookie-banner-wrapper {
+    background: linear-gradient(
+        145deg,
+        rgba(15, 15, 25, 0.98) 0%,
+        rgba(25, 25, 40, 0.95) 100%
+    );
+    border-radius: 32px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.5),
+        0 0 100px rgba(138, 43, 226, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(147, 112, 219, 0.4);
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: cookieBannerEntrance 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+/* Container interno */
+.cookie-container {
+    padding: 2.5rem;
+}
+
+/* Header del banner */
+.cookie-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(147, 112, 219, 0.3);
+}
+
+.cookie-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, #e94560, #6c5ce7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+    margin-right: 1rem;
+}
+
+.cookie-icon i {
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.cookie-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    flex: 1;
+    background: linear-gradient(135deg, #e94560, #6c5ce7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.cookie-close {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cookie-close:hover {
+    background: rgba(233, 69, 96, 0.3);
+    border-color: rgba(233, 69, 96, 0.5);
+    transform: scale(1.1);
+}
+
+.cookie-close i {
+    font-size: 1.2rem;
+}
+
+/* Contenuto del banner */
+.cookie-content {
+    color: #fff;
+}
+
+.cookie-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+}
+
+/* Opzioni dei cookie */
+.cookie-options {
+    margin-bottom: 2.5rem;
+}
+
+.cookie-option {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cookie-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(147, 112, 219, 0.3);
+    transform: translateY(-2px);
+}
+
+.cookie-option.essential {
+    background: rgba(0, 255, 127, 0.1);
+    border-color: rgba(0, 255, 127, 0.3);
+}
+
+.option-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.option-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #6c5ce7, #00d4ff);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+.option-icon i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.option-info {
+    flex: 1;
+}
+
+.option-info h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 0.5rem 0;
+}
+
+.option-info small {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    display: block;
+}
+
+.option-status.enabled {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(45deg, #00ff7f, #32cd32);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(0, 255, 127, 0.4);
+}
+
+.option-status.enabled i {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+/* Switch per i cookie */
+.cookie-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.cookie-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background: linear-gradient(45deg, #fff, #f0f0f0);
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .slider {
+    background: linear-gradient(45deg, #e94560, #6c5ce7);
+    border-color: rgba(233, 69, 96, 0.5);
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Azioni del banner */
+.cookie-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cookie-actions button {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #6c5ce7, #00d4ff);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(108, 92, 231, 0.5);
+}
+
+.btn-accent {
+    background: linear-gradient(45deg, #e94560, #ff6b6b);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(233, 69, 96, 0.4);
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(233, 69, 96, 0.5);
+}
+
+/* Footer del banner */
+.cookie-footer {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(147, 112, 219, 0.3);
+}
+
+.cookie-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.cookie-link:hover {
+    color: #6c5ce7;
+    text-decoration: underline;
+}
+
+/* Animazioni */
+@keyframes cookieBannerEntrance {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Scrollbar personalizzata */
+.cookie-banner-wrapper::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cookie-banner-wrapper::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.cookie-banner-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #e94560, #6c5ce7);
+    border-radius: 10px;
+}
+
+.cookie-banner-wrapper::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff6b6b, #00d4ff);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cookie-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .cookie-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .cookie-title {
+        font-size: 1.5rem;
+    }
+    
+    .cookie-actions {
+        flex-direction: column;
+    }
+    
+    .cookie-actions button {
+        width: 100%;
+    }
+    
+    .option-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cookie-overlay {
+        padding: 10px;
+    }
+    
+    .cookie-banner-wrapper {
+        border-radius: 20px;
+    }
+    
+    .cookie-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .cookie-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .cookie-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .cookie-title {
+        font-size: 1.3rem;
+    }
+    
+    .cookie-description {
+        font-size: 1rem;
+    }
+}
+
+/* Effetti di hover aggiuntivi */
+.cookie-option:hover .option-icon {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.5);
+}
+
+.cookie-switch:hover .slider {
+    box-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
+}
+
+/* Effetti di focus per accessibilità */
+.cookie-actions button:focus,
+.cookie-close:focus,
+.cookie-switch input:focus + .slider {
+    outline: 2px solid #6c5ce7;
+    outline-offset: 2px;
+}

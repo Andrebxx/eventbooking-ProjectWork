@@ -1,0 +1,545 @@
+/* STILI SPECIFICI PER LOGIN.PHP */
+
+/* BACKGROUND GENERALE DELLA PAGINA */
+body {
+    background: linear-gradient(135deg, 
+        #0a0a0f 0%, 
+        #1a1a2e 35%, 
+        #16213e 100%);
+    min-height: 100vh;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Overlay per migliorare la leggibilità */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(233, 69, 96, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(108, 92, 231, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* LOGIN CONTAINER */
+.login-container {
+    background: rgba(15, 15, 25, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 32px;
+    padding: 4rem 4rem;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease;
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.login-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(233, 69, 96, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 245, 255, 0.08) 0%, transparent 50%);
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.login-container > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* TITOLO LOGIN */
+.login-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.login-title h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(233, 69, 96, 0.3);
+}
+
+.login-title i {
+    margin-right: 0.5rem;
+    background: var(--neon-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ALERT MESSAGES */
+.alert {
+    background: rgba(255, 85, 85, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 85, 85, 0.3);
+    border-radius: 16px;
+    color: #ff5555;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    box-shadow: 0 8px 25px rgba(255, 85, 85, 0.1);
+}
+
+.alert-danger {
+    background: rgba(255, 85, 85, 0.15);
+    border-color: rgba(255, 85, 85, 0.3);
+    color: #ff7979;
+}
+
+/* FORM STYLING */
+.login-form {
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form-label {
+    color: var(--text-light);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    color: #ffffff !important;
+    font-size: 1.1rem;
+    padding: 1.25rem 4rem 1.25rem 1.5rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--accent-light);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff !important;
+    box-shadow: 
+        0 0 0 4px rgba(233, 69, 96, 0.1),
+        0 8px 25px rgba(233, 69, 96, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+    color: rgba(184, 188, 200, 0.7) !important;
+    opacity: 0.7;
+}
+
+/* Forza il colore del testo in tutti gli stati */
+.form-control::-webkit-input-placeholder {
+    color: rgba(184, 188, 200, 0.7) !important;
+}
+
+.form-control::-moz-placeholder {
+    color: rgba(184, 188, 200, 0.7) !important;
+    opacity: 0.7;
+}
+
+.form-control:-ms-input-placeholder {
+    color: rgba(184, 188, 200, 0.7) !important;
+}
+
+.form-control:-moz-placeholder {
+    color: rgba(184, 188, 200, 0.7) !important;
+    opacity: 0.7;
+}
+
+/* INPUT ICONS */
+.input-icon {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.form-control:focus + .input-icon {
+    color: var(--accent-light);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Icone specifiche per email e password */
+.form-group {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.form-group .input-icon.fa-envelope {
+    color: #00f5ff;
+    text-shadow: 0 0 15px rgba(0, 245, 255, 0.4);
+}
+
+.form-group .input-icon.fa-lock {
+    color: #bd93f9;
+    text-shadow: 0 0 15px rgba(189, 147, 249, 0.4);
+}
+
+.form-control:focus + .input-icon.fa-envelope {
+    color: #00f5ff;
+    text-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+}
+
+.form-control:focus + .input-icon.fa-lock {
+    color: #bd93f9;
+    text-shadow: 0 0 20px rgba(189, 147, 249, 0.6);
+}
+
+/* BOTTONI */
+.btn-login {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    border-radius: 25px;
+    background: var(--accent-gradient);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
+    position: relative;
+    overflow: hidden;
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-login::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--neon-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.btn-login:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(233, 69, 96, 0.4);
+}
+
+.btn-login:hover::before {
+    opacity: 1;
+}
+
+.btn-login:active {
+    transform: translateY(-1px) scale(1.01);
+    transition: all 0.1s ease;
+}
+
+/* LINK REGISTRAZIONE */
+.register-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.register-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--neon-gradient);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.register-link:hover {
+    color: var(--accent-light);
+    text-decoration: none;
+    text-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
+}
+
+.register-link:hover::after {
+    width: 100%;
+}
+
+/* ELEMENTI DECORATIVI */
+.login-decorations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Forme geometriche fluttuanti per login */
+.floating-login-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    opacity: 0.1;
+    animation: floatLogin 15s ease-in-out infinite;
+    filter: blur(2px);
+}
+
+.login-shape-1 {
+    width: 200px;
+    height: 200px;
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.3) 0%, rgba(108, 92, 231, 0.1) 100%);
+}
+
+.login-shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    right: 15%;
+    animation-delay: -5s;
+    background: radial-gradient(circle, rgba(0, 245, 255, 0.25) 0%, rgba(189, 147, 249, 0.1) 100%);
+}
+
+.login-shape-3 {
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    right: 25%;
+    animation-delay: -10s;
+    background: radial-gradient(circle, rgba(255, 121, 198, 0.3) 0%, rgba(108, 92, 231, 0.1) 100%);
+}
+
+/* Particelle per login */
+.login-particle {
+    position: absolute;
+    background: var(--neon-gradient);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: sparkleLogin 3s ease-in-out infinite;
+}
+
+.login-particle-1 { width: 8px; height: 8px; top: 25%; left: 20%; animation-delay: -1s; }
+.login-particle-2 { width: 6px; height: 6px; top: 60%; left: 80%; animation-delay: -2s; }
+.login-particle-3 { width: 10px; height: 10px; top: 80%; left: 30%; animation-delay: -3s; }
+.login-particle-4 { width: 12px; height: 12px; top: 35%; left: 75%; animation-delay: -4s; }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 1rem;
+        padding: 3rem 2.5rem;
+        border-radius: 24px;
+        max-width: 600px;
+        width: 95%;
+    }
+    
+    .login-title h2 {
+        font-size: 2rem;
+    }
+    
+    .form-control {
+        padding: 1rem 3.5rem 1rem 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .btn-login {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .input-icon {
+        right: 1.25rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-container {
+        margin: 0.5rem;
+        padding: 2.5rem 2rem;
+        border-radius: 20px;
+        max-width: 550px;
+        width: 98%;
+    }
+    
+    .login-title h2 {
+        font-size: 1.75rem;
+    }
+    
+    .form-control {
+        padding: 0.875rem 3rem 0.875rem 1.125rem;
+        font-size: 0.95rem;
+    }
+    
+    .btn-login {
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .input-icon {
+        right: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    .form-group {
+        margin-bottom: 2rem;
+    }
+}
+
+/* ANIMAZIONI */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(10px) rotate(240deg);
+    }
+}
+
+@keyframes floatLogin {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0.1;
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) rotate(90deg);
+        opacity: 0.15;
+    }
+    50% {
+        transform: translateY(-10px) translateX(-15px) rotate(180deg);
+        opacity: 0.08;
+    }
+    75% {
+        transform: translateY(20px) translateX(10px) rotate(270deg);
+        opacity: 0.12;
+    }
+}
+
+@keyframes sparkleLogin {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Effetti di hover migliorati */
+.form-control:hover {
+    border-color: rgba(233, 69, 96, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
+}
+
+/* Stili aggiuntivi per garantire il colore bianco */
+input[type="email"],
+input[type="password"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Animazioni per accessibilità */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Stili per validazione form */
+.form-control:invalid {
+    border-color: rgba(255, 85, 85, 0.5);
+    box-shadow: 0 0 0 2px rgba(255, 85, 85, 0.1);
+}
+
+.form-control:valid {
+    border-color: rgba(80, 250, 123, 0.5);
+    box-shadow: 0 0 0 2px rgba(80, 250, 123, 0.1);
+}
+
+/* Loading state per il bottone */
+.btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-login.loading::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

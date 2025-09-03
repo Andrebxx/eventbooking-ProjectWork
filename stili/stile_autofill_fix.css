@@ -1,0 +1,142 @@
+/* ========================================
+   FIX AUTOFILL BROWSER - VISIBILITA' TESTO
+   ======================================== */
+
+/* Chrome/Safari/Edge - Fix principale per autofill */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.08) inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+    caret-color: #ffffff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Firefox - Fix autofill */
+input:-moz-autofill,
+input:-moz-autofill-preview {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    caret-color: #ffffff !important;
+}
+
+/* Edge/IE - Fix autofill */
+input:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Override specifico per tutti i tipi di input */
+input[type="email"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill,
+input[type="tel"]:-webkit-autofill,
+input[type="url"]:-webkit-autofill {
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.08) inset !important;
+    caret-color: #ffffff !important;
+}
+
+/* Fix per form-control Bootstrap */
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:hover,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff !important;
+    color: #ffffff !important;
+    caret-color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Fix per il placeholder */
+.form-control::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important;
+}
+
+.form-control::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important;
+}
+
+.form-control:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important;
+}
+
+/* Stati normali degli input */
+.form-control {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    caret-color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.form-control:focus {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    caret-color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Fix specifico per Chrome - forza il colore della prima riga */
+input:-webkit-autofill::first-line {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: normal !important;
+}
+
+/* Fix per quando i campi sono readonly (bloccati) */
+input[type="email"]:-webkit-autofill[readonly],
+input[type="email"][readonly] {
+    -webkit-text-fill-color: #dc3545 !important;
+    color: #dc3545 !important;
+    font-weight: bold !important;
+    background-color: #f8f9fa !important;
+    border-color: #dc3545 !important;
+    caret-color: #dc3545 !important;
+}
+
+.form-control[readonly] {
+    background-color: #f8f9fa !important;
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+    font-weight: bold !important;
+    caret-color: #dc3545 !important;
+}
+
+/* Fix per browser che supportano la proprietà color-scheme */
+input {
+    color-scheme: dark !important;
+}
+
+/* Hack aggiuntivo per forzare la visibilità */
+input:-webkit-autofill ~ label {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Assicura che il testo rimanga visibile durante la transizione */
+input:-webkit-autofill {
+    animation-name: autofill !important;
+    animation-fill-mode: both !important;
+}
+
+@keyframes autofill {
+    to {
+        color: #ffffff !important;
+        background: rgba(255, 255, 255, 0.08) !important;
+    }
+}

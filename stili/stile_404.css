@@ -1,0 +1,772 @@
+/* STILI PER PAGINA 404 - ERROR PAGE */
+
+/* SFONDO PRINCIPALE - UGUALE ALL'INDEX */
+body {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #2d3748 75%, #1a1a2e 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 100% 50%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
+    }
+}
+
+/* ELEMENTI DECORATIVI DI SFONDO */
+.background-elements {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Forme geometriche fluttuanti */
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    opacity: 0.15;
+    animation: floatAdvanced 12s ease-in-out infinite;
+    filter: blur(3px);
+    box-shadow: 0 0 40px rgba(233, 69, 96, 0.3);
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+    animation-duration: 15s;
+    background: radial-gradient(circle, rgba(233, 69, 96, 0.4) 0%, rgba(108, 92, 231, 0.2) 100%);
+}
+
+.shape-2 {
+    width: 200px;
+    height: 200px;
+    top: 70%;
+    right: 10%;
+    animation-delay: -3s;
+    animation-duration: 18s;
+    background: radial-gradient(circle, rgba(0, 245, 255, 0.3) 0%, rgba(189, 147, 249, 0.2) 100%);
+}
+
+.shape-3 {
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    right: 25%;
+    animation-delay: -6s;
+    animation-duration: 12s;
+    background: radial-gradient(circle, rgba(255, 121, 198, 0.4) 0%, rgba(108, 92, 231, 0.2) 100%);
+}
+
+.shape-4 {
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    left: 70%;
+    animation-delay: -9s;
+    animation-duration: 20s;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.3) 0%, rgba(233, 69, 96, 0.2) 100%);
+}
+
+.shape-5 {
+    width: 120px;
+    height: 120px;
+    top: 80%;
+    left: 20%;
+    animation-delay: -12s;
+    animation-duration: 14s;
+    background: radial-gradient(circle, rgba(189, 147, 249, 0.4) 0%, rgba(0, 245, 255, 0.2) 100%);
+}
+
+/* Particelle luminose */
+.floating-particle {
+    position: absolute;
+    background: linear-gradient(135deg, #00f5ff 0%, #bd93f9 50%, #ff79c6 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: sparkle 4s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.particle-1 { width: 12px; height: 12px; top: 20%; left: 15%; animation-delay: -1s; }
+.particle-2 { width: 8px; height: 8px; top: 75%; left: 85%; animation-delay: -2s; }
+.particle-3 { width: 10px; height: 10px; top: 45%; left: 60%; animation-delay: -3s; }
+.particle-4 { width: 14px; height: 14px; top: 85%; left: 25%; animation-delay: -4s; }
+.particle-5 { width: 6px; height: 6px; top: 35%; left: 80%; animation-delay: -5s; }
+.particle-6 { width: 16px; height: 16px; top: 60%; left: 40%; animation-delay: -6s; }
+
+/* Note musicali fluttuanti di sfondo */
+.musical-note {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-light);
+    opacity: 0.7;
+    animation: musicalFloat 8s ease-in-out infinite;
+    text-shadow: 0 0 15px rgba(108, 92, 231, 0.6);
+    font-weight: bold;
+    user-select: none;
+}
+
+.note-1 { top: 20%; left: 25%; animation-delay: 0s; font-size: 2.5rem; }
+.note-2 { top: 60%; left: 75%; animation-delay: -1s; font-size: 1.8rem; }
+.note-3 { top: 40%; left: 85%; animation-delay: -2s; font-size: 2.2rem; }
+.note-4 { top: 75%; left: 15%; animation-delay: -3s; font-size: 2rem; }
+.note-5 { top: 30%; left: 10%; animation-delay: -4s; font-size: 2.3rem; }
+.note-6 { top: 80%; left: 65%; animation-delay: -5s; font-size: 1.9rem; }
+
+/* Cerchi pulsanti */
+.pulse-circle {
+    position: absolute;
+    border: 2px solid rgba(233, 69, 96, 0.3);
+    border-radius: 50%;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+.circle-1 {
+    width: 100px;
+    height: 100px;
+    top: 40%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    right: 30%;
+    animation-delay: -1s;
+    border-color: rgba(108, 92, 231, 0.3);
+}
+
+.circle-3 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 20%;
+    animation-delay: -2s;
+    border-color: rgba(0, 245, 255, 0.3);
+}
+
+/* Stelle scintillanti */
+.twinkling-star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.star-1 { top: 25%; left: 70%; animation-delay: 0s; }
+.star-2 { top: 45%; left: 20%; animation-delay: -0.5s; }
+.star-3 { top: 65%; left: 90%; animation-delay: -1s; }
+.star-4 { top: 15%; left: 40%; animation-delay: -1.5s; }
+.star-5 { top: 85%; left: 60%; animation-delay: -2s; }
+
+/* Animazioni per gli elementi di sfondo */
+@keyframes floatAdvanced {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-40px) translateX(-10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-20px) translateX(15px) rotate(3deg);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes musicalFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translateY(-15px) rotate(5deg);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-25px) rotate(-5deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-10px) rotate(3deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* CONTAINER PRINCIPALE ERRORE */
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+    padding: 3rem 1rem;
+    position: relative;
+    z-index: 10;
+}
+
+/* CODICE ERRORE 404 */
+.error-code {
+    font-size: 8rem;
+    font-weight: 900;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 40px rgba(233, 69, 96, 0.5);
+    animation: titleGlow 3s ease-in-out infinite;
+    line-height: 1;
+}
+
+/* TITOLO ERRORE */
+.error-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    animation: fadeInUp 1s ease-out;
+}
+
+/* SOTTOTITOLO ERRORE */
+.error-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* DESCRIZIONE ERRORE */
+.error-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+    animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* CONTAINER PULSANTI */
+.error-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* STILI PULSANTI */
+.btn {
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--accent-gradient);
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
+    color: var(--text-light);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.btn-accent {
+    background: var(--light-accent);
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(108, 92, 231, 0.4);
+    background: var(--purple-accent);
+    color: var(--text-light);
+}
+
+/* EFFETTI DI SFONDO SPECIFICI PER LA PAGINA 404 */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* ONDE MUSICALI */
+.music-wave {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: waveExpand 4s ease-out infinite;
+}
+
+.music-wave:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+    border-color: var(--accent);
+}
+
+.music-wave:nth-child(2) {
+    top: 60%;
+    right: 15%;
+    animation-delay: 1s;
+    border-color: var(--light-accent);
+}
+
+.music-wave:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 2s;
+    border-color: var(--neon-cyan);
+}
+
+.music-wave:nth-child(4) {
+    top: 40%;
+    right: 30%;
+    animation-delay: 3s;
+    border-color: var(--neon-purple);
+}
+
+/* NOTE MUSICALI */
+.music-notes {
+    position: absolute;
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.6;
+    animation: noteFloat 6s ease-in-out infinite;
+    text-shadow: 0 0 20px currentColor;
+    user-select: none;
+}
+
+.music-notes:nth-child(5) {
+    top: 15%;
+    left: 25%;
+    animation-delay: 0s;
+    color: var(--accent);
+}
+
+.music-notes:nth-child(6) {
+    top: 70%;
+    right: 20%;
+    animation-delay: 1.5s;
+    color: var(--light-accent);
+}
+
+.music-notes:nth-child(7) {
+    bottom: 30%;
+    left: 30%;
+    animation-delay: 3s;
+    color: var(--neon-cyan);
+}
+
+.music-notes:nth-child(8) {
+    top: 50%;
+    right: 40%;
+    animation-delay: 4.5s;
+    color: var(--neon-purple);
+}
+
+/* ANIMAZIONI */
+@keyframes waveExpand {
+    0% {
+        transform: scale(0.5);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes noteFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-30px) rotate(-5deg);
+        opacity: 0.4;
+    }
+    75% {
+        transform: translateY(-10px) rotate(3deg);
+        opacity: 0.7;
+    }
+}
+
+@keyframes titleGlow {
+    0%, 100% {
+        text-shadow: 0 0 40px rgba(233, 69, 96, 0.5);
+    }
+    50% {
+        text-shadow: 
+            0 0 60px rgba(233, 69, 96, 0.8),
+            0 0 80px rgba(108, 92, 231, 0.4);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ANIMAZIONE RIPPLE (per JavaScript) */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .error-code {
+        font-size: 6rem;
+    }
+    
+    .error-title {
+        font-size: 2.5rem;
+    }
+    
+    .error-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .error-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .error-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .music-wave {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .music-notes {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .error-container {
+        padding: 2rem 1rem;
+        min-height: 70vh;
+    }
+    
+    .error-code {
+        font-size: 4.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .error-title {
+        font-size: 2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .error-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .error-description {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .music-wave {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .music-notes {
+        font-size: 1.8rem;
+    }
+}
+
+/* EFFETTI HOVER PER DESKTOP */
+@media (hover: hover) {
+    .error-code:hover {
+        animation-duration: 1s;
+    }
+    
+    .music-notes:hover {
+        transform: scale(1.2) !important;
+        transition: transform 0.3s ease;
+    }
+}
+
+/* MIGLIORAMENTI PER SCHERMI GRANDI */
+@media (min-width: 1200px) {
+    .error-code {
+        font-size: 10rem;
+    }
+    
+    .error-title {
+        font-size: 3.5rem;
+    }
+    
+    .error-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .error-description {
+        font-size: 1.2rem;
+        max-width: 700px;
+    }
+    
+    .music-wave {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .music-notes {
+        font-size: 3.5rem;
+    }
+}
+
+/* EFFETTI DI ACCESSIBILITÀ */
+@media (prefers-reduced-motion: reduce) {
+    .error-code,
+    .music-wave,
+    .music-notes {
+        animation: none;
+    }
+    
+    .btn:hover {
+        transform: none;
+    }
+}
+
+/* STILI FOOTER PER PAGINA 404 */
+footer {
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+    color: var(--text-light);
+    padding: 3rem 0 1rem;
+    margin-top: 0;
+    position: relative;
+    z-index: 10;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(233, 69, 96, 0.05) 0%, rgba(108, 92, 231, 0.05) 100%);
+    pointer-events: none;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 2;
+}
+
+.footer-section h5 {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.footer-links a i {
+    width: 16px;
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-links a:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 0.9rem;
+}
